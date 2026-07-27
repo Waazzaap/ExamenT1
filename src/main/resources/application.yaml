@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: BibliotecaT1
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/bibliotecat1_db
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      pool-name: BibliotecaPool
+      maximum-pool-size: 5
+      minimum-idle: 2
+      connection-timeout: 3000
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+        flushMode: AUTO
+
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: America/Lima
+
+server:
+  port: 8080

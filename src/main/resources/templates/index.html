@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca T1 - Préstamos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #2c3e50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+<h1>Lista de Préstamos - Biblioteca</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Socio</th>
+        <th>Tipo Socio</th>
+        <th>Fecha Préstamo</th>
+        <th>Días Préstamo</th>
+        <th>Fecha Devolución Esperada</th>
+        <th>Libro</th>
+        <th>Estado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${prestamos}">
+        <td th:text="${p.idPrestamo}"></td>
+        <td th:text="${p.socio.nombres + ' ' + p.socio.apellidos}"></td>
+        <td th:text="${p.socio.tipoSocio}"></td>
+        <td th:text="${p.fechaPrestamo}"></td>
+        <td th:text="${p.socio.diasPrestamo}"></td>
+        <td th:text="${p.fechaDevolucionEsperada}"></td>
+        <td th:text="${p.libro.titulo}"></td>
+        <td th:text="${p.estado}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
