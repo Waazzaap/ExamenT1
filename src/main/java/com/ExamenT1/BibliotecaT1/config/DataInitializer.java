@@ -68,8 +68,9 @@ public class DataInitializer {
 
             System.out.println("\n=== LISTA DE PRÉSTAMOS ===");
             prestamoRepository.findAll().forEach(p -> {
+                Libro libroCompleto = libroRepository.findById(p.getLibro().getIdLibro()).orElseThrow();
                 System.out.println("- " + p.getSocio().getNombres() + " (" + p.getSocio().getDiasPrestamo() + " días) → "
-                        + p.getLibro().getTitulo() + " | Devolución: " + p.getFechaDevolucionEsperada());
+                        + libroCompleto.getTitulo() + " | Devolución: " + p.getFechaDevolucionEsperada());
             });
         };
     }
