@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Configuration
 public class DataInitializer {
 
-    //@Bean
+    @Bean
     CommandLineRunner cargarDatos(
             AutorRepository autorRepository,
             CategoriaRepository categoriaRepository,
